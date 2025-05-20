@@ -1,7 +1,9 @@
 import axios from 'axios';
 
-// Определение базового URL для проксирования через Vite
-const BASE_URL = '/v1';
+// Определение базового URL с возможностью настройки через глобальные переменные
+// или автоматически заменяем порт 3001 на 8080 в текущем URL
+const API_URL = (window as any).__VITE_API_URL__ || window.location.origin.replace(':3001', ':8080');
+const BASE_URL = `${API_URL}/v1`;
 
 // Список URL, которым НЕ нужно добавлять слеш в конце
 const NO_TRAILING_SLASH_URLS = [
