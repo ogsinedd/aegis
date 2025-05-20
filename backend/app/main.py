@@ -10,7 +10,7 @@ from app.services.collector import ContainerCollector
 from app.db.session import create_tables
 
 app = FastAPI(
-    title="Helix",
+    title="AEGIS",
     description="Система управления уязвимостями в Docker-контейнерах",
     version="0.1.0",
 )

@@ -5,7 +5,7 @@ from typing import Optional
 class Settings(BaseSettings):
     """Настройки приложения из переменных окружения"""
     # Настройки базы данных
-    DATABASE_URL: str = "postgresql://postgres:postgres@db:5432/helix"
+    DATABASE_URL: str = "postgresql://postgres:postgres@aegis-db:5432/aegis"
     
     # Настройки сканирования
     SCAN_INTERVAL: int = 300  # секунды

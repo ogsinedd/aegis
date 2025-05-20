@@ -1,9 +1,8 @@
 # Настройки базы данных
 POSTGRES_USER=postgres
 POSTGRES_PASSWORD=postgres
-POSTGRES_DB=helix
-POSTGRES_HOST=db
-POSTGRES_PORT=5432
+POSTGRES_DB=aegis
+DATABASE_URL=postgresql://postgres:postgres@aegis-db:5432/aegis
 
 # Настройки Docker
 DOCKER_HOST=unix:///var/run/docker.sock
@@ -18,4 +17,9 @@ SCANNER=grype
 DEV_MODE=false
 
 # Настройки сервера
-LOG_LEVEL=INFO 
+LOG_LEVEL=INFO
+
+# Планировщик
+ALPHA=0.6  # Вес CVSS
+BETA=0.3   # Вес Impact Factor
+GAMMA=0.1  # Вес Exploit Probability 

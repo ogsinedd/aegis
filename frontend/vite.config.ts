@@ -20,7 +20,7 @@ export default defineConfig({
     },
     proxy: {
       '/v1': {
-        target: 'http://helix-backend:8080',
+        target: 'http://aegis-backend:8080',
         changeOrigin: true,
         secure: false,
         followRedirects: false,

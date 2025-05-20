@@ -4,16 +4,16 @@ services:
   db:
     image: postgres:15-alpine
     platform: ${PLATFORM:-linux/arm64}
-    container_name: helix-db
+    container_name: aegis-db
     restart: unless-stopped
     volumes:
       - db-data:/var/lib/postgresql/data
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: helix
+      POSTGRES_DB: aegis
     networks:
-      - helix-net
+      - aegis-net
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 10s
@@ -22,7 +22,7 @@ services:
 
   backend:
     image: python:3.11-slim
-    container_name: helix-backend
+    container_name: aegis-backend
     restart: unless-stopped
     working_dir: /app
     volumes:
@@ -37,7 +37,7 @@ services:
       - PYTHONUNBUFFERED=1
       - DOCKER_API_VERSION=1.47
     networks:
-      - helix-net
+      - aegis-net
     ports:
       - "8080:8080"
     extra_hosts:
@@ -45,7 +45,7 @@ services:
 
   frontend:
     image: node:20-slim
-    container_name: helix-ui
+    container_name: aegis-ui
     restart: unless-stopped
     working_dir: /app
     volumes:
@@ -54,14 +54,14 @@ services:
     depends_on:
       - backend
     networks:
-      - helix-net
+      - aegis-net
     ports:
       - "3001:3000"
 
 networks:
-  helix-net:
+  aegis-net:
     driver: bridge
 
 volumes:
   db-data:
-    name: helix-db-data
+    name: aegis-db-data
