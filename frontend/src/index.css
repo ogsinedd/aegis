@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 5%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 142 68% 49%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 240 3% 17%;
+    --secondary-foreground: 240 5% 65%;
+    --accent: 142 68% 49%;
+    --accent-foreground: 0 0% 0%;
+    --muted: 240 3% 16%;
+    --muted-foreground: 240 5% 65%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 240 3% 17%;
+    --input: 240 3% 17%;
+    --ring: 142 68% 49%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  .font-aegis {
+    font-family: 'Quicksand', sans-serif;
+    letter-spacing: 0.05em;
+  }
+}
+
+/* Базовые стили */
+html, body {
+  @apply h-full;
+}
+
+/* Стили для компонентов загрузки */
+.loading {
+  @apply flex items-center justify-center h-full;
+}
+
+.loading-spinner {
+  @apply w-8 h-8 border-4 border-primary/20 rounded-full animate-spin;
+  border-top-color: theme('colors.primary.DEFAULT');
+}
+
+/* Пользовательские утилиты */
+.card {
+  @apply p-6 bg-card rounded-lg border border-border;
+}
+
+.badge {
+  @apply px-2 py-1 text-xs font-semibold rounded-full;
+}
+
+.badge-critical {
+  @apply bg-destructive/20 text-destructive;
+}
+
+.badge-high {
+  @apply bg-warning/20 text-warning;
+}
+
+.badge-medium {
+  @apply bg-yellow-500/20 text-yellow-500;
+}
+
+.badge-low {
+  @apply bg-success/20 text-success;
+}
+
+.btn {
+  @apply inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors 
+  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-1
+  disabled:opacity-50 disabled:pointer-events-none;
+}
+
+.btn-primary {
+  @apply bg-primary text-primary-foreground hover:bg-primary/90;
+}
+
+.btn-secondary {
+  @apply bg-secondary text-secondary-foreground hover:bg-secondary/80;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+} 

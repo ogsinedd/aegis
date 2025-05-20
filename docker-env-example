@@ -1,0 +1,21 @@
+# Настройки базы данных
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=postgres
+POSTGRES_DB=helix
+POSTGRES_HOST=db
+POSTGRES_PORT=5432
+
+# Настройки Docker
+DOCKER_HOST=unix:///var/run/docker.sock
+DOCKER_API_VERSION=1.47
+
+# Настройки сканирования
+SCAN_INTERVAL=600  # 10 минут
+DOCKER_SOCKET=/var/run/docker.sock
+SCANNER=grype
+
+# Режим разработки
+DEV_MODE=false
+
+# Настройки сервера
+LOG_LEVEL=INFO 
